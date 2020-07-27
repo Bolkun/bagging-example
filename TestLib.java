@@ -26,16 +26,17 @@ import javax.xml.XMLConstants;
 import javax.xml.validation.Schema;
 import javax.xml.transform.stream.StreamSource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.github.jscancella.domain.Bag;
 import com.github.jscancella.domain.BagBuilder;
+import com.github.jscancella.hash.BagitChecksumNameMapping;
 import com.github.jscancella.hash.internal.FileCountAndTotalSizeVistor;
 
 public class TestLib {
 	
-	private static final Logger logger = LoggerFactory.getLogger(TestLib.class);
+//	private static final Logger logger = LoggerFactory.getLogger(TestLib.class);
 	private static final String absolute_dir = System.getProperty("user.dir");
 	
 	public static String getFileName(String sPath){
@@ -70,6 +71,10 @@ public class TestLib {
 		Path bagNewDir = Paths.get(slubbagit_path_export);	// NOTE: the data directory MUST be included as this is part of the relative path
 		
 		Path payloadFiles = Paths.get(ie_path_import);
+		
+		//create new thread safe hasher
+		ThreadSafeMD5Hasher newMd5Hasher = new ThreadSafeMD5Hasher();
+		BagitChecksumNameMapping.add(newMd5Hasher.getBagitAlgorithmName(), newMd5Hasher);
 	
 		BagBuilder builder = new BagBuilder();
 		builder.addAlgorithm("md5")
