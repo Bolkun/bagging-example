@@ -2,5 +2,5 @@
 43891602828342b90fe94da9b9f7120c  meta/bubble.xml
 eaa2c609ff6371712f623f5531945b44  bagit.txt
 721aad13918f292d25bc9dc7d61b0e9c  bag-info.txt
-57d24035d9023c631ece549749000c0e  manifest-sha512.txt
 218305ad8263ecbe58ae7f3eb122dc31  manifest-md5.txt
+57d24035d9023c631ece549749000c0e  manifest-sha512.txt
